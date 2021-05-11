@@ -1,0 +1,36 @@
+<div class="card">
+    <div class="d-flex justify-content-center" style="text-align: center;" >
+        <div class="card border-light mb-3 ml-3 mt-3" style="max-width: 18rem;">
+            <div class="card-header font-weight-bold" style="background-color: #f1f3f5;">작성 완료</div>
+            <div class="card-body">
+            <p class="card-text p-5" style="font-size: 2em;">{{reviewCount[2].value}}건</p>
+            </div>
+        </div>
+        <div class="card border-light mb-3 ml-3 mt-3" style="max-width: 18rem;">
+            <div class="card-header font-weight-bold"  style="background-color: #f1f3f5;">미작성</div>
+            <div class="card-body">
+            <p class="card-text p-5" style="font-size: 2em;">{{reviewCount[1].value}}건</p>
+            </div>
+        </div>
+        <div class="card border-light mb-3 ml-3 mt-3" style="max-width: 18rem;">
+            <div class="card-header font-weight-bold"  style="background-color: #f1f3f5;">현재 리뷰</div>
+            <div class="card-body">
+            <p class="card-text p-5" style="font-size: 2em;">{{reviewCount[0].value}}건</p>
+            </div>
+        </div>
+        <div class="card border-light mb-3 ml-3 mt-3" style="max-width: 18rem;">
+            <div class="card-header font-weight-bold" style="background-color: #f1f3f5;">삭제 리뷰</div>
+            <div class="card-body">
+            <p class="card-text p-5" style="font-size: 2em;">{{reviewCount[2].value - reviewCount[0].value}}건</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="card-header" style="text-align: center;  background-color: #f1f3f5;">
+        리뷰 리스트
+    </div>
+      
+    <div class="card-body">
+        <ng-include src="getView()"/>        
+    </div>
+</div>

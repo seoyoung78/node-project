@@ -1,0 +1,31 @@
+<div class="card-body">
+      <div>
+
+        <table class="table mt-3">
+            <tr style="background-color: #f8f9fa;">
+                <th>번호</th>
+                <th>상품이름</th>
+                <th>상품넘버</th>
+                <th>리뷰여부</th>
+                <th>수량</th>
+                <th>가격</th>
+            </tr>
+            <tr ng-repeat="orderProduct in orderProducts">
+                <td>{{orderProduct.orderNo}}</td>
+                <td>{{orderProduct.productName}}</td>
+                <td>{{orderProduct.productNo}}</td>
+                <td>
+                    <div ng-switch on="orderProduct.reviewState"> 
+                        <div ng-switch-when="0">미작성</div>
+                        <div ng-switch-when="1">작성</div> 
+                      </div> 
+                </td>
+                <td>{{orderProduct.amount}}</td>
+                <td>{{orderProduct.price}}</td>
+            </tr>
+        </table>
+        <div class="d-flex justify-content-center">  
+            <button class="btn btn-sm text-white" style="background-color: #d15851;" ng-click="getList(keyword,pager.pageNo)">목록</button>
+        </div>
+      </div>
+</div>

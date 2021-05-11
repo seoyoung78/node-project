@@ -1,0 +1,42 @@
+<div class="card">
+    <div class="d-flex justify-content-center" style="text-align: center;" >
+      <div class="card border-light mb-3 ml-3 mt-3" style="max-width: 18rem;">
+        <div class="card-header font-weight-bold" style="background-color: #f1f3f5;">총 개수</div>
+        <div class="card-body">
+          <p class="card-text p-5" style="font-size: 2em;">{{productCount[0].value}}개</p>
+        </div>
+      </div>
+      <div class="card border-light mb-3 ml-3 mt-3" style="max-width: 18rem;">
+        <div class="card-header font-weight-bold" style="background-color: #f1f3f5;" >캔들</div>
+        <div class="card-body">
+          <p class="card-text p-5" style="font-size: 2em;">{{productCount[1].value}}개</p>
+        </div>
+      </div>
+      <div class="card border-light mb-3 ml-3 mt-3" style="max-width: 18rem;">
+        <div class="card-header font-weight-bold" style="background-color: #f1f3f5;">조명</div>
+        <div class="card-body">
+          <p class="card-text p-5" style="font-size: 2em;">{{productCount[2].value}}개</p>
+        </div>
+      </div>
+      <div class="card border-light mb-3 ml-3 mt-3" style="max-width: 18rem;">
+        <div class="card-header font-weight-bold" style="background-color: #f1f3f5;">트리</div>
+        <div class="card-body">
+          <p class="card-text p-5" style="font-size: 2em;">{{productCount[3].value}}개</p>
+        </div>
+      </div>
+      <div class="card border-light mb-3 ml-3 mt-3 mr-3" style="max-width: 18rem;">
+        <div class="card-header font-weight-bold" style="background-color: #f1f3f5;">기타</div>
+        <div class="card-body">
+          <p class="card-text p-5" style="font-size: 2em;">{{productCount[4].value}}개</p>
+        </div>
+      </div>
+    </div>
+
+    
+    <div class="card-header text-sm-center" style=" background-color: #f1f3f5;">
+      상품 리스트  
+    </div>
+    <div class="card-body">
+        <ng-include src="getView()" />
+    </div>
+</div>

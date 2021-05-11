@@ -1,0 +1,44 @@
+
+    <div class="card-body">
+        <div>
+            <div class="form-group d-inline-flex" style="border-bottom: 1px solid lightgray; width: 100%;  padding-left: 50px;">
+                <label style="font-weight: bold;">카테고리 :</label>
+                <div class="ml-4">
+                    <input name="category" type="radio" ng-model="product.productCategoryNo" value="1">캔들
+                    <input name="category" type="radio" ng-model="product.productCategoryNo" value="2" style="margin-left:10px;"/>조명
+                    <input name="category" type="radio" ng-model="product.productCategoryNo" value="3" style="margin-left:10px;"/>트리
+                    <input name="category" type="radio" ng-model="product.productCategoryNo" value="4" style="margin-left:10px;"/>기타
+                </div>
+            </div>
+
+            </div>
+            <div class="form-group d-inline-flex" style="border-bottom: 1px solid lightgray; width: 100%;  padding-left: 50px;">
+                <label style="font-weight: bold;">상품이름 :</label>
+                <div class="ml-4">
+                    <input class="form-control mb-3" ng-model="product.productName"/>
+                </div>
+            </div>
+
+            <div class="form-group d-inline-flex" style="border-bottom: 1px solid lightgray; width: 100%;  padding-left: 50px;">
+                <label style="font-weight: bold;">가격 :</label>
+                <div class="ml-4">
+                    <input class="form-control mb-3" ng-model="product.productPrice"/>
+                </div>
+            </div>
+            <div class="form-group ml-5">
+                <label>대표 이미지:</label>
+                <input id="battach1" type="file" class="form-control-file"/>
+                <label>이미지:</label>
+                <input id="battach2" type="file" class="form-control-file"/>
+                <label>이미지:</label>
+                <input id="battach3" type="file" class="form-control-file"/>
+                <label>이미지:</label>
+                <input id="battach4" type="file" class="form-control-file"/>
+                <label>상세 이미지:</label>
+                <input id="battach5" type="file" class="form-control-file"/>
+            </div>
+            <button class="btn btn-sm text-white ml-5" style="background-color: #d15851;" ng-click="createProduct(product)">등록</button>
+            <button class="btn btn-sm text-white" style="background-color: #d15851;" ng-click="cancel()">취소</button>        
+        </div>        
+    </div>
+

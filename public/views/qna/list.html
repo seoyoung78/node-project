@@ -1,0 +1,49 @@
+<div class="card-body">
+      <div>
+        <div class="mb-3"> 
+          <select ng-model="stateVal" style="height: 1.9em; width: 7.5em;">
+              <option ng-repeat="state in stateList">{{state}}</option>
+          </select>
+          <button class="btn btn-secondary btn-sm mb-1"  ng-click="getList(stateVal,1)">조회</button>
+        </div>
+
+        <table class="table mt-3" style="text-align: center;">
+            <tr style="background-color: #f8f9fa;">
+                <th style="width: 10%;">번호</th>
+                <th>제목</th>
+                <th style="width: 30%;">아이디</th>
+                <th style="width: 17%;">등록날짜</th>
+                <th style="width: 17%;">답변상태</th>
+            </tr>
+            <tr ng-repeat="qna in qna">
+                <td>{{qna.qnaNo}}</td>
+                <td><a ng-click="read(stateVal,qna.qnaNo)" href="">{{qna.qnaTitle}}</a></td>
+                <td>{{qna.userId}}</td>
+                <td>{{qna.qnaRegdate | date:"yyyy.MM.dd"}}</td>
+                <td>
+                  <div ng-switch on = "qna.answerState">
+                    <div ng-switch-when="0">미답변</div>
+                    <div ng-switch-when="1">답변완료</div>
+                  </div>
+                </td>
+            </tr>
+               <tr>
+                  <td colspan="8" style="text-align: center;">
+                     <button class="btn btn-outline-dark btn-sm" 
+                                 ng-click="getList(stateVal,1)">처음</button> 
+                     <button   class="btn btn-outline-dark btn-sm" 
+                                 ng-show="pager.groupNo>1" 
+                                 ng-click="getList(stateVal,pager.startPageNo-1)">이전</button>
+                     <button ng-repeat="i in pageRange"
+                                class="btn btn-sm {{(pager.pageNo==i)?'btn-dark':'btn-outline-dark'}} {{!$last?'mr-1':''}}" 
+                                 ng-click="getList(stateVal,i)">{{i}}</button>
+                     <button   class="btn btn-outline-dark btn-sm" 
+                                 ng-show="pager.groupNo < pager.totalGroupNo" 
+                                 ng-click="getList(stateVal,pager.endPageNo+1)">다음</button>
+                     <button class="btn btn-outline-dark btn-sm" 
+                                 ng-click="getList(stateVal,pager.totalPageNo)">맨끝</button>
+                  </td>
+               </tr>
+        </table>
+      </div>
+</div>

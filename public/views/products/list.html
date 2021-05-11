@@ -1,0 +1,59 @@
+<div class="card-body">
+      <div>
+
+        <div class="d-flex justify-content-between">
+
+          <div>
+            <select ng-model="categoryVal" style="width: 5em; height: 2em;">
+              <option ng-repeat="category in categoryList">{{category}}</option>
+            </select>
+            <input class="" type="text" ng-model="keyword" placeholder="상품 이름을 입력하세요."/>
+            <button class="btn btn-sm btn-secondary" ng-click="keywordButton(categoryVal, keyword)" style="margin-bottom: 5px;">검색</button>
+          </div>
+          
+          <div class="mb-3" ng-show="uid">
+            <button class="btn btn-m text-white" style="background-color: #d15851;" ng-click="createProductForm()">상품 등록</button>
+          </div>
+        </div>
+
+        <table class="table mt-3">
+            <tr style="text-align: center; background-color: #f8f9fa;">
+                <th style="width: 10%;">번호</th>
+                <th style="width: 10%;">종류</th>
+                <th>이름</th>
+                <th style="width: 15%;">가격</th>
+                <th style="width: 15%;">품절상태</th>
+                <th style="width: 15%;">등록일</th>
+            </tr>
+            <tr ng-repeat="product in products" style="text-align: center; border-bottom: 1px solid lightgray;">
+                <td>{{product.productNo}}</td>
+                <td ng-show="product.productCategoryNo === 1">캔들</td>
+                <td ng-show="product.productCategoryNo === 2">조명</td>
+                <td ng-show="product.productCategoryNo === 3">트리</td>
+                <td ng-show="product.productCategoryNo === 4">기타</td>
+                <td><a ng-click="read(product.productNo)" href="">{{product.productName}}</a></td>
+                <td>{{product.productPrice}}원</td>
+                <td ng-show="product.productState === 0">판매중</td>
+                <td ng-show="product.productState === 1">품절</td>
+                <td>{{product.productRegdate | date:"yyyy.MM.dd"}}</td>
+            </tr>
+               <tr>
+                  <td colspan="6" style="text-align: center;">
+                     <button class="btn btn-outline-dark btn-sm" 
+                                 ng-click="getList(1)">처음</button> 
+                     <button   class="btn btn-outline-dark btn-sm" 
+                                 ng-show="pager.groupNo>1" 
+                                 ng-click="getList(pager.startPageNo-1)">이전</button>
+                     <button ng-repeat="i in pageRange"
+                                class="btn btn-sm {{(pager.pageNo==i)?'btn-dark':'btn-outline-dark'}} {{!$last?'mr-1':''}}" 
+                                 ng-click="getList(i)">{{i}}</button>
+                     <button   class="btn btn-outline-dark btn-sm" 
+                                 ng-show="pager.groupNo < pager.totalGroupNo" 
+                                 ng-click="getList(pager.endPageNo+1)">다음</button>
+                     <button class="btn btn-outline-dark btn-sm" 
+                                 ng-click="getList(pager.totalPageNo)">맨끝</button>
+                  </td>
+               </tr>
+        </table>
+      </div>
+    </div>

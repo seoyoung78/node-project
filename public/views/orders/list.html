@@ -1,0 +1,49 @@
+<div class="card-body">
+      <div>
+        <input type="text" ng-model="keyword" placeholder="검색어를 입력하세요."/>
+        <button class="btn btn-sm btn-secondary" ng-click="getList(keyword,1)" style="margin-bottom: 5px;">검색</button>
+        <table class="table mt-3" style="text-align: center;">
+            <tr style="background-color: #f8f9fa;">
+                <th style="width: 10%;">번호</th>
+                <th style="width: 15%;">아이디</th>
+                <th style="width: 10%;">가격</th>
+                <th style="width: 15%;">날짜</th>
+                <th style="width: 10%;">상태</th>
+                <th style="width: 10%;">우편</th>
+                <th>주소</th>
+            </tr>
+            <tr ng-repeat="order in orders">
+                <td><a ng-click="read(keyword,order.orderNo)" href="">{{order.orderNo}}</a></td>
+                <td>{{order.userId}}</td>
+                <td>{{order.allPrice | number:0}}원</td>
+                <td>{{order.orderDate | date:"yyyy.MM.dd"}}</td>
+                <td>
+                  <div ng-switch on="order.orderState"> 
+                    <div ng-switch-when="0">완료</div>
+                    <div ng-switch-when="1">취소</div> 
+                  </div> 
+                </td>
+                <td>{{order.zipCode}}</td>
+                <td>{{order.roadAddress}}</td>
+            </tr>
+               <tr>
+                  <td colspan="8" style="text-align: center;">
+                     <button class="btn btn-outline-dark btn-sm" 
+                                 ng-click="getList(keyword,1)">처음</button> 
+                     <button   class="btn btn-outline-dark btn-sm" 
+                                 ng-show="pager.groupNo>1" 
+                                 ng-click="getList(keyword,pager.startPageNo-1)">이전</button>
+                     <button ng-repeat="i in pageRange"
+                                class="btn btn-sm {{(pager.pageNo==i)?'btn-dark':'btn-outline-dark'}} {{!$last?'mr-1':''}}" 
+                                 ng-click="getList(keyword,i)">{{i}}</button>
+                     <button   class="btn btn-outline-dark btn-sm" 
+                                 ng-show="pager.groupNo < pager.totalGroupNo" 
+                                 ng-click="getList(keyword,pager.endPageNo+1)">다음</button>
+                     <button class="btn btn-outline-dark btn-sm" 
+                                 ng-click="getList(keyword,pager.totalPageNo)">맨끝</button>
+                  </td>
+               </tr>
+        </table>
+      </div>
+    
+</div>

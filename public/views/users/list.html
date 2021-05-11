@@ -1,0 +1,51 @@
+
+    <div class="card-body">
+      
+      <div>
+        <select ng-model="userStateVal"  style="height: 2em; width: 5em;">
+          <option ng-repeat="userState in userStateList">{{userState}}</option>
+        </select>
+        <input type="text" style="margin-top: 1em; width: 13em;"ng-model="idKeywordVal" placeholder="회원 아이디를 입력하세요."/>
+        <button class="btn btn-sm btn-secondary" ng-click="idKeywordButton(userStateVal, idKeywordVal)" style="margin-bottom: 5px;">검색</button>
+      </div>
+
+      
+
+       
+      
+        <table class="table mt-3">
+            <tr style="text-align: center; background-color: #f8f9fa;">
+                <th>아이디</th>
+                <th style="width:15%">이름</th>
+                <th style="width:20%">생년월일</th>
+                <th style="width:15%">회원상태</th>
+                <th style="width:20%">등록일</th>
+            </tr>
+            <tr ng-repeat="user in users" style="text-align: center;">
+                <td><a ng-click="read(user.userId)" href="">{{user.userId}}</a></td>
+                <td>{{user.userName}}</td>
+                <td>{{user.userSsn1}}</td>
+                <td ng-show="user.deleteState === 0">회원</td>
+                <td ng-show="user.deleteState === 1">탈퇴</td>
+                <td>{{user.userRegdate | date:"yyyy.MM.dd"}}</td>
+            </tr>
+               <tr>
+                  <td colspan="5" style="text-align: center;">
+                     <button class="btn btn-outline-dark btn-sm" 
+                                 ng-click="getList(1)">처음</button> 
+                     <button   class="btn btn-outline-dark btn-sm" 
+                                 ng-show="pager.groupNo>1" 
+                                 ng-click="getList(pager.startPageNo-1)">이전</button>
+                     <button ng-repeat="i in pageRange"
+                                class="btn btn-sm {{(pager.pageNo==i)?'btn-dark':'btn-outline-dark'}} {{!$last?'mr-1':''}}" 
+                                 ng-click="getList(i)">{{i}}</button>
+                     <button   class="btn btn-outline-dark btn-sm" 
+                                 ng-show="pager.groupNo < pager.totalGroupNo" 
+                                 ng-click="getList(pager.endPageNo+1)">다음</button>
+                     <button class="btn btn-outline-dark btn-sm" 
+                                 ng-click="getList(pager.totalPageNo)">맨끝</button>
+                  </td>
+               </tr>
+        </table>
+      </div>
+    </div>
