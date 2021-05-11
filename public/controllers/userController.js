@@ -47,18 +47,15 @@ angular.module("app")
     $scope.readUserCount = () => {
         userService.readCount(0)
           .then((response) => {
-            $scope.userCount[0].value = response.data;
-            console.log($scope.userCount[0].value);
+            $scope.userCount[0].value = response.data.result;
         });
         userService.readCount(1)
           .then((response) => {
-            $scope.userCount[1].value = response.data;
-            console.log($scope.userCount[1].value);
+            $scope.userCount[1].value = response.data.result;
         });
         userService.readCount(2)
         .then((response) => {
-          $scope.userCount[2].value = response.data;
-          console.log($scope.userCount[2].value);
+          $scope.userCount[2].value = response.data.result;
         });
     };    
 
@@ -76,13 +73,11 @@ angular.module("app")
     };
 
     $scope.updateUser = (user) => {
-      if(user.userId && user.userName && user.userPhone && user.zipCode && user.roadAddress 
-          && user.detailAddress && user.userAuthority) {
-        
-          console.log(user.deleteState);
+      if(user.user_id && user.user_name && user.user_phone && user.zip_code && user.road_address 
+          && user.detail_address && user.user_authority && user.user_enable) {        
         userService.update(user)
         .then((response) => {
-            $scope.read(user.userId);
+            $scope.read(user.user_id);
             $scope.view = "read";
         });
       }

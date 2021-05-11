@@ -12,7 +12,10 @@ const jwtAuth = require("./security/jwtAuth");
 const cors = require("cors");
 
 //라우터 가져오기
-const index = require("./routes/index");
+const auth = require("./routes/auth");
+const user = require("./routes/user");
+const review = require("./routes/review");
+const product = require("./routes/product");
 
 //.env 파일을 읽어서 process.env에 추가
 dotenv.config();
@@ -98,7 +101,10 @@ app.use((req, res, next) => {
 });
 
 //요청 경로와 라우터 매핑
-app.use("/", index);
+app.use("/", auth);
+app.use("/users", user);
+app.use("/reviews", review);
+app.use("/products", product);
 
 //404 처리 미들웨어 - 위의 라우터가 실행이 안 됐을 경우
 // app.use((req, res, next) => {

@@ -72,8 +72,9 @@ module.exports = (sequelize, DataTypes) => {
       allowNull: false
     },
     delete_date: {
-      type: DataTypes.INTEGER,
-      allowNull: true
+      type: DataTypes.DATE,
+      allowNull: true,
+      defaultValue: Sequelize.NOW
     },
     delete_reason: {
       type: DataTypes.STRING,

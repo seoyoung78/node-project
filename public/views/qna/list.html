@@ -27,7 +27,7 @@
                   </div>
                 </td>
             </tr>
-               <tr>
+               <tr ng-if="pager.totalRows != 0">
                   <td colspan="8" style="text-align: center;">
                      <button class="btn btn-outline-dark btn-sm" 
                                  ng-click="getList(stateVal,1)">처음</button> 

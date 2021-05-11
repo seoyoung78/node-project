@@ -3,98 +3,91 @@
         <div class="form-group d-inline-flex" style="border-bottom: 1px solid lightgray; width: 100%;  padding-left: 50px;">
             <label style="font-weight: bold;">등록일 :</label>
             <div class="ml-4">
-                <div>{{user.userRegdate | date:"yyyy.MM.dd"}}</div>
+                <div>{{user.user_regdate | date:"yyyy.MM.dd"}}</div>
             </div>
         </div>
         <div class="form-group d-inline-flex" style="border-bottom: 1px solid lightgray; width: 100%;  padding-left: 50px;">
             <label style="font-weight: bold;">아이디 :</label>
             <div class="ml-4">
-                <input class="form-control mb-3" ng-model="user.userId"/>
+                <input class="form-control mb-3" ng-model="user.user_id"/>
             </div>
         </div>
         <div class="form-group d-inline-flex" style="border-bottom: 1px solid lightgray; width: 100%;  padding-left: 50px;">
             <label style="font-weight: bold;">이름 :</label>
             <div class="ml-4">
-                <input class="form-control mb-3" ng-model="user.userName"/>
+                <input class="form-control mb-3" ng-model="user.user_name"/>
             </div>
         </div>
         <div class="form-group d-inline-flex" style="border-bottom: 1px solid lightgray; width: 100%;  padding-left: 50px;">
             <label style="font-weight: bold;">휴대폰 번호 :</label>
             <div class="ml-4">
-                <input class="form-control mb-3" ng-model="user.userPhone"/>
+                <input class="form-control mb-3" ng-model="user.user_phone"/>
             </div>
         </div>
         <div class="form-group d-inline-flex" style="border-bottom: 1px solid lightgray; width: 100%;  padding-left: 50px;">
             <label style="font-weight: bold;">우편번호 :</label>
             <div class="ml-4">
-                <input class="form-control mb-3" ng-model="user.zipCode"/>
+                <input class="form-control mb-3" ng-model="user.zip_code"/>
             </div>
         </div>
         <div class="form-group d-inline-flex" style="border-bottom: 1px solid lightgray; width: 100%;  padding-left: 50px;">
             <label style="font-weight: bold;">주소 :</label>
             <div class="ml-4">
-                <input class="form-control mb-3" ng-model="user.roadAddress" style="width: 500px;"/>
+                <input class="form-control mb-3" ng-model="user.road_address" style="width: 500px;"/>
             </div>
         </div>
         <div class="form-group d-inline-flex" style="border-bottom: 1px solid lightgray; width: 100%;  padding-left: 50px;">
             <label style="font-weight: bold;">상세주소 :</label>
             <div class="ml-4">
-                <input class="form-control mb-3" ng-model="user.detailAddress"/>
+                <input class="form-control mb-3" ng-model="user.detail_address"/>
             </div>
         </div>
         <div class="form-group d-inline-flex" style="width: 100%;  padding-left: 50px;">
             <label style="font-weight: bold;">생년월일 :</label>
             <div class="ml-4">
-                <div>{{user.userSsn1}}</div>
+                <div>{{user.user_ssn1}}</div>
             </div>
         </div>
         <div class="form-group d-inline-flex" style="border-bottom: 1px solid lightgray; width: 100%;  padding-left: 50px;">
-            <label style="font-weight: bold;">로그인 상태 :</label>
+            <label style="font-weight: bold;">회원 상태 :</label>
             <div class="ml-4">
-                <div>{{user.userEnabled}}</div>
+                <input class="form-control mb-3" ng-model="user.user_enable"/>
             </div>
         </div>
         <div class="form-group d-inline-flex" style="border-bottom: 1px solid lightgray; width: 100%;  padding-left: 50px;">
             <label style="font-weight: bold;">권한 :</label>
             <div class="ml-4">
-                <input class="form-control mb-3" ng-model="user.userAuthority"/>
+                <input class="form-control mb-3" ng-model="user.user_authority"/>
             </div>
         </div>
         <div class="form-group d-inline-flex" style="width: 100%;  padding-left: 50px;">
             <label style="font-weight: bold;">계좌번호 :</label>
             <div class="ml-4">
-                <div>{{user.userAccount}}</div>
+                <div>{{user.user_account}}</div>
             </div>
         </div>
         <div class="form-group d-inline-flex" style="width: 100%;  padding-left: 50px;">
             <label style="font-weight: bold;">은행 :</label>
             <div class="ml-4">
-                <div>{{user.userBank}}</div>
+                <div>{{user.user_bank}}</div>
             </div>
         </div>
         <div class="form-group d-inline-flex" style="border-bottom: 1px solid lightgray; width: 100%;  padding-left: 50px;">
             <label style="font-weight: bold;">예금주 :</label>
             <div class="ml-4">
-                <div>{{user.accountName}}</div>
-            </div>
-        </div>
-        <div class="form-group d-inline-flex" style="border-bottom: 1px solid lightgray; width: 100%;  padding-left: 50px;">
-            <label style="font-weight: bold;">탈퇴 여부 :</label>
-            <div class="ml-4">
-                <input class="form-control mb-3" ng-model="user.deleteState"/>
-                
+                <div>{{user.account_name}}</div>
             </div>
         </div>
         <div class="form-group d-inline-flex" style="border-bottom: 1px solid lightgray; width: 100%;  padding-left: 50px;">
             <label style="font-weight: bold;">탈퇴 날짜 :</label>
             <div class="ml-4">
-                <div>{{user.deleteDate | date:'yyyy.MM.dd'}}</div>
+                <div>{{user.delete_date | date:'yyyy.MM.dd'}}</div>
             </div>
         </div>
         <div class="form-group d-inline-flex" style="border-bottom: 1px solid lightgray; width: 100%;  padding-left: 50px;">
             <label style="font-weight: bold;">탈퇴 이유 :</label>
             <div class="ml-4">
-                <input class="form-control mb-3" ng-model="user.deleteReason"/>
+                <input class="form-control mb-3" ng-model="user.delete_reason"/>
             </div>
         </div>
         <div class="d-flex justify-content-center">  

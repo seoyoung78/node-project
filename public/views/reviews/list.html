@@ -13,10 +13,10 @@
                 <th style="width: 15%;">등록일</th>
             </tr>
             <tr ng-repeat="review in reviews">
-                <td>{{review.reviewNo}}</td>
-                <td><a ng-click="read(review.reviewNo, keyword)" href="">{{review.productName}}</a></td>
-                <td>{{review.userId}}</td>
-                <td>{{review.reviewRegdate | date:"yyyy.MM.dd"}}</td>
+                <td>{{review.review_no}}</td>
+                <td><a ng-click="read(review.reviewNo, keyword)" href="">{{review.product_name}}</a></td>
+                <td>{{review.user_id}}</td>
+                <td>{{review.review_regdate | date:"yyyy.MM.dd"}}</td>
             </tr>
                <tr ng-if="pager.totalRows != 0">
                   <td colspan="5" style="text-align: center;">

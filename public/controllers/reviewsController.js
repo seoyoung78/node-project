@@ -23,17 +23,17 @@ angular.module("app")
     $scope.readReviewCount = () => {
       reviewsService.count(0)
         .then((response) => {
-          $scope.reviewCount[0].value = response.data;
+          $scope.reviewCount[0].value = response.data.result;
           //console.log($scope.reviewCount[0].value);
         });
         reviewsService.count(1)
         .then((response) => {
-          $scope.reviewCount[1].value = response.data;
+          $scope.reviewCount[1].value = response.data.result;
           //console.log($scope.reviewCount[1].value);
         });
         reviewsService.count(2)
         .then((response) => {
-          $scope.reviewCount[2].value = response.data;
+          $scope.reviewCount[2].value = response.data.result;
           //console.log($scope.reviewCount[2].value);
         });
     };

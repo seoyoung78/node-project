@@ -26,10 +26,6 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.INTEGER,
       allowNull: false
     },
-    product_content: {
-      type: DataTypes.STRING,
-      allowNull: false
-    },
     product_state: {
       type: DataTypes.INTEGER,
       allowNull: false,

@@ -20,7 +20,7 @@ module.exports = (sequelize, DataTypes) => {
   }, {
     sequelize: sequelize,
     modelName: "ProductCategory",
-    tableName: "prodcut_categories",
+    tableName: "product_categories",
     timestamps: false //createAt과 updateAt 컬럼 사용 안함
   });
 

@@ -21,7 +21,7 @@ angular.module("app")
       $scope.readProductCount = () => {
           productService.readCount(0)
             .then((response) => {
-              $scope.productCount[0].value = response.data;
+              $scope.productCount[0].value = response.data.result;
               //console.log($scope.productCount[0].value);
           });
           productService.readCount(1)
@@ -55,7 +55,7 @@ angular.module("app")
     $scope.readUserCount = () => {
         userService.readCount(0)
           .then((response) => {
-            $scope.userCount[0].value = response.data;
+            $scope.userCount[0].value = response.data.result;
             //console.log("확인",$scope.userCount[0].value);
         });
         userService.readCount(1)
@@ -79,7 +79,7 @@ angular.module("app")
     $scope.readOrderCount = () => {
       ordersService.readCount(0)
           .then((response) => {
-            $scope.orderCount[0].value = response.data;
+            $scope.orderCount[0].value = response.data.result;
             //console.log($scope.orderCount[0].value);
         });
         ordersService.readCount(1)
@@ -104,7 +104,7 @@ angular.module("app")
     $scope.readRefundCount = () => {
       productsRefundService.count(0)
         .then((response) => {
-          $scope.refundCount[0].value = response.data;
+          $scope.refundCount[0].value = response.data.result;
            //console.log("REFUND",$scope.refundCount[0].value);
         });
       productsRefundService.count(1)
@@ -129,7 +129,7 @@ angular.module("app")
     $scope.readReviewCount = () => {
       reviewsService.count(0)
         .then((response) => {
-          $scope.reviewCount[0].value = response.data;
+          $scope.reviewCount[0].value = response.data.result;
           //console.log($scope.reviewCount[0].value);
         });
         reviewsService.count(1)
@@ -153,7 +153,7 @@ angular.module("app")
     $scope.readQnaCount = () => {
       qnaService.readCount(0)
           .then((response) => {
-            $scope.qnaCount[0].value = response.data;
+            $scope.qnaCount[0].value = response.data.result;
             //console.log($scope.qnaCount[0].value);
         });
         qnaService.readCount(1)

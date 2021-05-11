@@ -20,6 +20,6 @@ angular.module("app")
                 const promise = $http.put(BASE_URL, user);
                 return promise;
             }
-          
+
         };
     });
