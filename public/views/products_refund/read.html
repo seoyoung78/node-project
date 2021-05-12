@@ -3,27 +3,27 @@
         <div class="form-group d-inline-flex" style="border-bottom: 1px solid lightgray; width: 100%;  padding-left: 50px;">
             <label style="font-weight: bold;">주문번호:</label>
             <div class="ml-4">
-              <div ng-bind="refund.orderNo"></div>
+              <div ng-bind="refund.order_no"></div>
             </div>
         </div>
         <div class="form-group d-inline-flex" style="border-bottom: 1px solid lightgray; width: 100%;  padding-left: 50px;">
             <label style="font-weight: bold;">아이디:</label>
             <div class="ml-4">
-              <div ng-bind="refund.userId"></div>
+              <div ng-bind="refund.Order.user_id"></div>
             </div>
         </div>
         <div class="form-group d-inline-flex" style="border-bottom: 1px solid lightgray; width: 100%;  padding-left: 50px;">
             <label style="font-weight: bold;">환불사유:</label>
             <div class="ml-4">
-              <div ng-bind="refund.refundReason"></div>
+              <div ng-bind="refund.refund_reason"></div>
             </div>
         </div>
         <div class="form-group d-inline-flex" style="border-bottom: 1px solid lightgray; width: 100%;  padding-left: 50px;">
           <label style="font-weight: bold;">환불상태:</label>
-          <div class="ml-4" ng-if="refund.refundState == 0">
+          <div class="ml-4" ng-if="refund.refund_state == 0">
             <div>환불 중</div>
           </div>   
-          <div class="ml-4" ng-if="refund.refundState == 1">
+          <div class="ml-4" ng-if="refund.refund_state == 1">
             <div>환불 완료</div>
           </div>       
         </div>

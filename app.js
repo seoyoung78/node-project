@@ -13,9 +13,12 @@ const cors = require("cors");
 
 //라우터 가져오기
 const auth = require("./routes/auth");
-const user = require("./routes/user");
-const review = require("./routes/review");
 const product = require("./routes/product");
+const user = require("./routes/user");
+const order = require("./routes/order");
+const review = require("./routes/review");
+const refund = require("./routes/refund");
+const qna = require("./routes/qna");
 
 //.env 파일을 읽어서 process.env에 추가
 dotenv.config();
@@ -102,9 +105,12 @@ app.use((req, res, next) => {
 
 //요청 경로와 라우터 매핑
 app.use("/", auth);
+app.use("/products", product);
 app.use("/users", user);
 app.use("/reviews", review);
-app.use("/products", product);
+app.use("/qna", qna);
+app.use("/products_refund", refund);
+app.use("/orders", order);
 
 //404 처리 미들웨어 - 위의 라우터가 실행이 안 됐을 경우
 // app.use((req, res, next) => {

@@ -134,5 +134,25 @@ module.exports = {
     } catch(error) {
       throw error;
     }
+  },
+
+  sortlist: async function(sort) {
+    try {
+      let order = null;
+      if (sort === 0) {
+        order = [["product_sellcount", "DESC"]];
+      } else {
+        order = [["product_regdate", "DESC"]];
+      }
+
+      const result = await db.Product.findAll({
+        order,
+        limit: 7
+      })
+      
+      return result;
+    } catch(error) {
+      throw error;
+    }
   }
 };

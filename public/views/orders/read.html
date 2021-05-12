@@ -11,11 +11,11 @@
                 <th>가격</th>
             </tr>
             <tr ng-repeat="orderProduct in orderProducts">
-                <td>{{orderProduct.orderNo}}</td>
-                <td>{{orderProduct.productName}}</td>
-                <td>{{orderProduct.productNo}}</td>
+                <td>{{orderProduct.order_no}}</td>
+                <td>{{orderProduct.Product.product_name}}</td>
+                <td>{{orderProduct.product_no}}</td>
                 <td>
-                    <div ng-switch on="orderProduct.reviewState"> 
+                    <div ng-switch on="orderProduct.review_state"> 
                         <div ng-switch-when="0">미작성</div>
                         <div ng-switch-when="1">작성</div> 
                       </div> 

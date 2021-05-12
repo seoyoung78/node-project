@@ -23,17 +23,17 @@ angular.module("app")
     $scope.readReviewCount = () => {
       reviewsService.count(0)
         .then((response) => {
-          $scope.reviewCount[0].value = response.data.result;
+          $scope.reviewCount[0].value = response.data;
           //console.log($scope.reviewCount[0].value);
         });
         reviewsService.count(1)
         .then((response) => {
-          $scope.reviewCount[1].value = response.data.result;
+          $scope.reviewCount[1].value = response.data;
           //console.log($scope.reviewCount[1].value);
         });
         reviewsService.count(2)
         .then((response) => {
-          $scope.reviewCount[2].value = response.data.result;
+          $scope.reviewCount[2].value = response.data;
           //console.log($scope.reviewCount[2].value);
         });
     };
@@ -65,10 +65,10 @@ angular.module("app")
     };
 
     $scope.updateReview = (review) => {
-      if(review.reviewContent) {
+      if(review.review_content) {
         reviewsService.update(review)
         .then((response) => {
-            $scope.read(review.reviewNo);
+            $scope.read(review.review_no, "");
             $scope.view = "read";
         });
       }

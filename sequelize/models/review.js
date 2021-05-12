@@ -4,9 +4,7 @@ module.exports = (sequelize, DataTypes) => {
   //모델 클래스 선언
   class Review extends Model {
     static associate(models) {
-      models.Review.belongsTo(models.Order, {foreignKey:"order_no", targetKey:"order_no"});
       models.Review.belongsTo(models.Product, {foreignKey:"product_no", targetKey:"product_no"});
-      models.Review.belongsTo(models.User, {foreignKey:"user_id", targetKey:"user_id"});
     }
   }
   //DB 칼럼 데이터 타입에 맞게 모델의 속성 정의

@@ -19,12 +19,12 @@
                 <th style="width: 20%;">등록일</th>
             </tr>
             <tr ng-repeat="refund in refunds">
-                <td><a ng-click="read(refund.orderNo, stateVal, reasonVal)" href="">{{refund.orderNo}}</a></td>
-                <td>{{refund.userId}}</td>
-                <td ng-if="refund.refundState == 0">환불 중</td>
-                <td ng-if="refund.refundState == 1">환불 완료</td>
-                <td>{{refund.refundReason}}</td>
-                <td>{{refund.refundDate | date:"yyyy.MM.dd"}}</td>
+                <td><a ng-click="read(refund.order_no, stateVal, reasonVal)" href="">{{refund.order_no}}</a></td>
+                <td>{{refund.Order.user_id}}</td>
+                <td ng-if="refund.refund_state == 0">환불 중</td>
+                <td ng-if="refund.refund_state == 1">환불 완료</td>
+                <td>{{refund.refund_reason}}</td>
+                <td>{{refund.refund_date | date:"yyyy.MM.dd"}}</td>
             </tr>
             <tr ng-if="pager.totalRows != 0">
                 <td colspan="5" style="text-align: center;">

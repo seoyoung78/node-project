@@ -16,12 +16,12 @@
                 <th style="width: 17%;">답변상태</th>
             </tr>
             <tr ng-repeat="qna in qna">
-                <td>{{qna.qnaNo}}</td>
-                <td><a ng-click="read(stateVal,qna.qnaNo)" href="">{{qna.qnaTitle}}</a></td>
-                <td>{{qna.userId}}</td>
-                <td>{{qna.qnaRegdate | date:"yyyy.MM.dd"}}</td>
+                <td>{{qna.qna_no}}</td>
+                <td><a ng-click="read(stateVal,qna.qna_no)" href="">{{qna.qna_title}}</a></td>
+                <td>{{qna.user_id}}</td>
+                <td>{{qna.qna_regdate | date:"yyyy.MM.dd"}}</td>
                 <td>
-                  <div ng-switch on = "qna.answerState">
+                  <div ng-switch on = "qna.answer_state">
                     <div ng-switch-when="0">미답변</div>
                     <div ng-switch-when="1">답변완료</div>
                   </div>

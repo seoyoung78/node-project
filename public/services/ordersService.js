@@ -5,7 +5,7 @@ angular.module("app")
     //서비스 객체 리턴
     return {
       list: function(keyword="",pageNo=1) { //pageNo가 넘어오지 않으면 디폴트 값은 1
-        const promise = $http.get(BASE_URL+"/keyword", {params:{keyword,pageNo}},); //get이 리턴하는 것이 무엇? promise(비동기 처리하는 것)
+        const promise = $http.get(BASE_URL+"/", {params:{keyword, pageNo}},); //get이 리턴하는 것이 무엇? promise(비동기 처리하는 것)
         return promise;
       },
       read: function(orderNo) {
@@ -14,20 +14,6 @@ angular.module("app")
       },
       readCount: function(countNo){
         const promise = $http.get(BASE_URL + "/readCount", {params:{countNo}});
-        return promise;
-      },
-      create: function(order) {
-        const promise = $http.post(BASE_URL, order); 
-        console.log(orderNo);
-     
-        return promise;
-      },
-      update: function(order) {
-        const promise = $http.put(BASE_URL, order);
-        return promise;
-      },
-      delete: function(orderNo) {
-        const promise = $http.delete(BASE_URL + "/" + orderNo);
         return promise;
       }
     }

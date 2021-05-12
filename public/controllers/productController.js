@@ -53,23 +53,23 @@ angular.module("app")
     $scope.readProductCount = () => {
         productService.readCount(0)
           .then((response) => {
-            $scope.productCount[0].value = response.data.result;
+            $scope.productCount[0].value = response.data;
         });
         productService.readCount(1)
           .then((response) => {
-            $scope.productCount[1].value = response.data.result;
+            $scope.productCount[1].value = response.data;
         });
         productService.readCount(2)
         .then((response) => {
-          $scope.productCount[2].value = response.data.result;
+          $scope.productCount[2].value = response.data;
         });
         productService.readCount(3)
         .then((response) => {
-          $scope.productCount[3].value = response.data.result;
+          $scope.productCount[3].value = response.data;
         });
         productService.readCount(4)
         .then((response) => {
-          $scope.productCount[4].value = response.data.result;
+          $scope.productCount[4].value = response.data;
         });
     };    
 

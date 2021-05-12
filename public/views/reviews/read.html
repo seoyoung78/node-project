@@ -3,31 +3,31 @@
       <div class="form-group d-inline-flex" style="border-bottom: 1px solid lightgray; width: 100%;  padding-left: 50px;">
           <label style="font-weight: bold;">리뷰번호:</label>
           <div class="ml-4">
-            <div ng-bind="review.reviewNo"></div>
+            <div ng-bind="review.review_no"></div>
           </div>
       </div>
         <div class="form-group d-inline-flex" style="border-bottom: 1px solid lightgray; width: 100%;  padding-left: 50px;">
           <label style="font-weight: bold;">상품명:</label>
           <div class="ml-4">
-            <div ng-bind="review.productName"></div>
+            <div ng-bind="review.Product.product_name"></div>
           </div>
         </div>
         <div class="form-group d-inline-flex" style="border-bottom: 1px solid lightgray; width: 100%;  padding-left: 50px;">
             <label style="font-weight: bold;">글쓴이:</label>
             <div class="ml-4">
-              <div ng-bind="review.userId"></div>
+              <div ng-bind="review.user_id"></div>
             </div>
         </div>
         <div class="form-group d-inline-flex" style="border-bottom: 1px solid lightgray; width: 100%;  padding-left: 50px;">
             <label style="font-weight: bold;">내용:</label>
             <div class="ml-4">
-              <div ng-bind="review.reviewContent"></div>
+              <div ng-bind="review.review_content"></div>
             </div>
         </div>
         <div class="d-flex justify-content-center">
           <button class="btn btn-sm text-white mr-3" style="background-color: #d15851;" ng-click="getList(pager.pageNo, keyword)">목록</button>
           <button class="btn btn-sm text-white mr-3" style="background-color: #d15851;" ng-click="updateReviewForm()">수정</button> 
-          <button class="btn btn-sm text-white" style="background-color: #d15851;" ng-click="deleteReview(review.reviewNo)">삭제</button>       
+          <button class="btn btn-sm text-white" style="background-color: #d15851;" ng-click="deleteReview(review.review_no)">삭제</button>       
         </div>        
     </div>
 </div>

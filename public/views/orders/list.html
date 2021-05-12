@@ -13,18 +13,18 @@
                 <th>주소</th>
             </tr>
             <tr ng-repeat="order in orders">
-                <td><a ng-click="read(keyword,order.orderNo)" href="">{{order.orderNo}}</a></td>
-                <td>{{order.userId}}</td>
-                <td>{{order.allPrice | number:0}}원</td>
-                <td>{{order.orderDate | date:"yyyy.MM.dd"}}</td>
+                <td><a ng-click="read(keyword,order.order_no)" href="">{{order.order_no}}</a></td>
+                <td>{{order.user_id}}</td>
+                <td>{{order.all_price | number:0}}원</td>
+                <td>{{order.order_date | date:"yyyy.MM.dd"}}</td>
                 <td>
-                  <div ng-switch on="order.orderState"> 
+                  <div ng-switch on="order.order_state"> 
                     <div ng-switch-when="0">완료</div>
                     <div ng-switch-when="1">취소</div> 
                   </div> 
                 </td>
-                <td>{{order.zipCode}}</td>
-                <td>{{order.roadAddress}}</td>
+                <td>{{order.zip_code}}</td>
+                <td>{{order.road_address}}</td>
             </tr>
                <tr ng-if="pager.totalRows != 0">
                   <td colspan="8" style="text-align: center;">

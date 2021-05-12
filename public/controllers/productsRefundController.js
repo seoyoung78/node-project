@@ -75,7 +75,7 @@ angular.module("app")
     $scope.updateRefund = (refund) => {
       productsRefundService.update(refund)
         .then((response) => {    
-          $scope.read(refund.orderNo, $scope.stateVal, $scope.reasonVal);
+          $scope.read(refund.order_no, $scope.stateVal, $scope.reasonVal);
           $scope.view="read"
         });
     };

@@ -1,5 +1,6 @@
 const express = require("express");
 const reviewService = require("../services/review-service");
+const orderProductService = require("../services/orderproduct-service");
 const paging = require("../utils/paging");
 
 const router = express.Router();
@@ -23,22 +24,23 @@ router.get("/readcount", async (req, res, next) => {
     let result = 0;
     const countNo = parseInt(req.query.countNo);
     if (countNo == 0) {
-      result = reviewService.totalRows("");
+      result = await reviewService.totalRows("");
     } else if (countNo == 1) {
-      //result = orderProdcutService.totalRows(0);
+      result = await orderProductService.totalRows(0);
     } else {
-     //result = orderProdcutService.totalRows(1);
+      result = await orderProductService.totalRows(1);
     }
-
-    res.json({result});
+    res.json(result);
   } catch(error) {
     next(error);
   }
 });
 
-router.get("/:review_no", async (req, res, next) => {
+router.get("/:reviewNo", async (req, res, next) => {
   try {
-
+    const rno = req.params.reviewNo;
+    const review = await reviewService.getReview(rno);
+    res.json(review);
   } catch(error) {
     next(error);
   }
@@ -46,7 +48,9 @@ router.get("/:review_no", async (req, res, next) => {
 
 router.put("", async (req, res, next) => {
   try {
-
+    const review = {...req.body, review_no:parseInt(req.body.review_no)};
+    const row = await reviewService.update(review);
+    res.json(row);
   } catch(error) {
     next(error);
   }
@@ -54,7 +58,10 @@ router.put("", async (req, res, next) => {
 
 router.delete("/:review_no", async (req, res, next) => {
   try {
-
+    const rno = req.params.review_no;
+    console.log(req.params);
+    const row = await reviewService.delete(rno);
+    res.json(row);
   } catch(error) {
     next(error);
   }

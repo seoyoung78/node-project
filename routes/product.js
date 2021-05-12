@@ -33,8 +33,26 @@ router.get("/readCount", async (req, res, next) => {
     } else {
       result = await productService.totalRows("전체", "");
     }
-    res.json({result});
+    res.json(result);
   } catch(error) {
+    next(error);
+  }
+});
+
+router.get("/pcount", async (req, res, next) => {
+  try {
+    const blist = await productService.sortlist(0);
+    const nlist = await productService.sortlist(1); 
+    res.json({blist, nlist});
+  } catch(error) {
+    next(error);
+  }
+});
+
+router.get("/battach/:pid/:i", async (req, res, next) => {
+  try {
+
+  } catch (error) {
     next(error);
   }
 });
@@ -45,6 +63,22 @@ router.get("/:pid", async (req, res, next) => {
     const product = await productService.getProduct(pid);
     res.json(product);
   } catch(error) {
+    next(error);
+  }
+});
+
+router.post("", async (req, res, next) => {
+  try {
+
+  } catch (error) {
+    next(error);
+  }
+});
+
+router.put("", async (req, res, next) => {
+  try {
+
+  } catch (error) {
     next(error);
   }
 });

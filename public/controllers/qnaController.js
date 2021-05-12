@@ -27,42 +27,16 @@ angular.module("app")
       qnaService.readCount(0)
           .then((response) => {
             $scope.qnaCount[0].value = response.data;
-            console.log($scope.qnaCount[0].value);
         });
         qnaService.readCount(1)
           .then((response) => {
             $scope.qnaCount[1].value = response.data;
-            console.log($scope.qnaCount[1].value);
         });
         qnaService.readCount(2)
         .then((response) => {
-          $scope.qnaCount[2].value = response.data;
-          console.log($scope.qnaCount[2].value);
+          $scope.qnaCount[2].value = response.data;        
         });
     };    
-
-    // $scope.getList = (keyword, pageNo) => {
-    //     qnaService.list(keyword, pageNo)
-    //   .then((response) => { //데이터가 성공적으로 오게 되면 response 객체 얻음
-    //     $scope.pager = response.data.pager; //상태변수에 담음. 왜? 상태변수에 담지 않으면 바인딩을 할 수가 없음. 상태 변수에 반드시 저장!!!!
-    //     $scope.qna = response.data.qna;
-    //     $scope.pageRange = []; //배열 선언
-    //     for(var i=$scope.pager.startPageNo; i<=$scope.pager.endPageNo; i++){
-    //       $scope.pageRange.push(i);
-    //     }
-    //     $scope.view = "list";
-    //   });
-    // };
-
-    // $scope.read = (keyword,qnaNo) => {
-    //   console.log(keyword);
-    //     qnaService.read(qnaNo)
-    //     .then((response) => {
-    //       $scope.qna = response.data;
-    //       $scope.view = "read"; //read라는 view를 보여주기
-    //       $scope.keyword=keyword;
-    //     });
-    // };
 
     $scope.getList = (stateVal, pageNo) => {
       qnaService.list(stateVal, pageNo)
@@ -78,7 +52,6 @@ angular.module("app")
   };
 
   $scope.read = (stateVal,qnaNo) => {
-    console.log(stateVal);
       qnaService.read(qnaNo)
       .then((response) => {
         $scope.qna = response.data;
@@ -99,11 +72,11 @@ angular.module("app")
   };
 
   $scope.updateQna = (qna) => {
-
-     if(qna.answerContent){
+    
+     if(qna.answer_content){
       qnaService.update(qna)
         .then((response) => {
-          $scope.read(qna.qnaNo);
+          $scope.read("전체", qna.qna_no);
           $scope.view = "read";
         });
       }

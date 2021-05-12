@@ -9,7 +9,7 @@ module.exports = {
         where = {
           [Op.or]: [
             {"review_content": {[Op.like]: "%" + keyword + "%"}},
-            //{"review_content": {[Op.like]: "%" + keyword + "%"}}
+            //{"product_name": {[Op.like]: "%" + keyword + "%"}}
         ]}
       } 
 
@@ -26,79 +26,66 @@ module.exports = {
     try {
       let where = null;
       if(keyword !== "") {
-        where = {"review_content": {[Op.like]: "%" + keyword + "%"}}
+        where = {
+          [Op.or]: [
+            {"review_content": {[Op.like]: "%" + keyword + "%"}},
+            //{"product_name": {[Op.like]: "%" + keyword + "%"}}
+        ]}
       } 
 
       const review = await db.Review.findAll({
         where,
-        order: [["review_regdate", "DESC"]],
+        include: [{
+          model: db.Product,
+          attributes: ["product_name"]
+        }],
+        order: [["review_no", "DESC"]],
         limit: pager.rowsPerPage,
         offset: pager.startRowIndex
       });
-
-      // review.dataValues.Orders = await review.getOrder({
-      //   attributes: ["order_no"]
-      // });
-
-      // review.dataValues.Products = await review.getProduct({
-      //   attributes: ["product_name"]
-      // });
-
+      
       return review;
     } catch(error) {
       throw error;
     }
   },
 
-  rangeList: async function(startBno, endBno) {
-    try {
-      const result = await db.Review.findAll({
-        attributes: ["bno", "btitle", "bwriter", "bdate", "bhitcount"],
-        where: {
-          [Op.and]: [
-            {"bno": {[Op.gte]: startBno}},
-            {"bno": {[Op.lte]: endBno}}
-          ]
-        }
+  getReview: async function(rno) {
+    try{
+      const review = await db.Review.findOne({
+        where: {review_no: rno},
+        include: [{
+          model: db.Product,
+          attributes: ["product_name"]
+        }]
       });
-      return result;
+      return review;
     } catch(error) {
       throw error;
     }
   },
 
-  getReview: async function (bno) {
+  update: async function(review) {
     try {
-      const board = await db.Review.findOne({
-        where: {bno: bno}
-      });
-      return board;
-    } catch(error) {
-      throw error;
-    }
-  },
-
-  update: async function (board) {
-    try {
-      const rows = await db.Review.update({
-        btitle: board.btitle,
-        bcontent: board.bcontent
+      let row;
+      row = await db.Review.update({
+        review_content: review.review_content
       }, {
-        where: {bno: board.bno}
-      });
-      return rows;
+        where: {review_no: review.review_no}
+      })
+      return row;
     } catch(error) {
       throw error;
     }
   },
 
-  delete: async function (bno) {
+  delete: async function(rno) {
     try {
-      const rows = await db.Review.destroy({
-        where: {bno}
+      const row = await db.Review.destroy({
+        where: {review_no: rno}
       });
-      return rows;
-    } catch(error) {
+      return row;
+    } catch (error) {
       throw error;
     }
   }

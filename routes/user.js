@@ -29,7 +29,7 @@ router.get("/readCount", async (req, res, next) => {
     } else {
       result = await userService.totalRows("탈퇴", "");
     }
-    res.json({result});
+    res.json(result);
   } catch(error) {
     next(error);
   }
@@ -48,7 +48,8 @@ router.get("/:uid", async (req, res, next) => {
 router.put("", async (req, res, next) => {
   try{
     const user = {...req.body, zip_code:parseInt(req.body.zip_code), user_enable:parseInt(req.body.user_enable)};
-    await userService.update(user);
+    const row = await userService.update(user);
+    res.json(row);
   } catch(error) {
     next(error);
   }

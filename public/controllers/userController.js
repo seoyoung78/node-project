@@ -47,15 +47,15 @@ angular.module("app")
     $scope.readUserCount = () => {
         userService.readCount(0)
           .then((response) => {
-            $scope.userCount[0].value = response.data.result;
+            $scope.userCount[0].value = response.data;
         });
         userService.readCount(1)
           .then((response) => {
-            $scope.userCount[1].value = response.data.result;
+            $scope.userCount[1].value = response.data;
         });
         userService.readCount(2)
         .then((response) => {
-          $scope.userCount[2].value = response.data.result;
+          $scope.userCount[2].value = response.data;
         });
     };    
 

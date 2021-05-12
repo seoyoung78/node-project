@@ -19,7 +19,7 @@ angular.module("app")
         },
         
         count: function(countNo) {
-          const promise = $http.get(BASE_URL + "/readcount", {params:{countNo:countNo}});
+          const promise = $http.get(BASE_URL + "/readCount", {params:{countNo:countNo}});
           return promise;
         }
       }

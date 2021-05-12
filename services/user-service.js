@@ -103,10 +103,10 @@ module.exports = {
 
   update: async function(user) {
     try{
-      let dbuser;
+      let row;
       user.delete_date = new Date();
       if (user.user_enable == 0) {
-        dbuser = await db.User.update({
+        row = await db.User.update({
           user_id: user.user_id,
           user_name: user.user_name,
           user_phone: user.user_phone,
@@ -120,7 +120,7 @@ module.exports = {
           where: {user_id: user.user_id}
         })
       } else {
-        dbuser = await db.User.update({
+        row = await db.User.update({
           user_id: user.user_id,
           user_name: user.user_name,
           user_phone: user.user_phone,
@@ -131,8 +131,7 @@ module.exports = {
         }, {
           where: {user_id: user.user_id}
         })
-        // console.log(dbuser);
-        // return dbuser;
+        return row;
       }
     } catch(error) {
       throw error;

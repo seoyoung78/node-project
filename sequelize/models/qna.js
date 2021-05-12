@@ -4,7 +4,7 @@ module.exports = (sequelize, DataTypes) => {
   //모델 클래스 선언
   class Qna extends Model {
     static associate(models) {
-     
+      models.Qna.belongsTo(models.User, {foreignKey:"user_id", targetKey:"user_id"});
     }
   }
   //DB 칼럼 데이터 타입에 맞게 모델의 속성 정의
@@ -23,6 +23,10 @@ module.exports = (sequelize, DataTypes) => {
       allowNull: false
     },
     qna_title: {
+      type: DataTypes.STRING,
+      allowNull: false
+    },
+    qna_content: {      
       type: DataTypes.STRING,
       allowNull: false
     },
