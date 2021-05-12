@@ -154,5 +154,21 @@ module.exports = {
     } catch(error) {
       throw error;
     }
+  },
+
+  getImgList: async function(pid) {
+    try {
+      const img = await db.Product.findOne({
+        where: {product_no: pid},
+        include: [{
+          model: db.ProductsImg,
+          attributes: ["img_state", "img_oname", "img_sname", "img_type"]
+        }]
+      });
+      console.log(img)
+      return img;
+    } catch(error) {
+      throw error;
+    }
   }
 };

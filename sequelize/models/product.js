@@ -4,7 +4,7 @@ module.exports = (sequelize, DataTypes) => {
   //모델 클래스 선언
   class Product extends Model {
     static associate(models) {
-     
+      models.Product.hasMany(models.ProductsImg, {foreignKey:"product_no", sourceKey: "product_no"});
     }
   }
   //DB 칼럼 데이터 타입에 맞게 모델의 속성 정의

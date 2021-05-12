@@ -51,7 +51,10 @@ router.get("/pcount", async (req, res, next) => {
 
 router.get("/battach/:pid/:i", async (req, res, next) => {
   try {
-
+    const pid = req.params.pid;
+    const i = req.params.i;
+    const img = await productService.getImgList(pid);
+    console.log(img);
   } catch (error) {
     next(error);
   }
@@ -59,7 +62,7 @@ router.get("/battach/:pid/:i", async (req, res, next) => {
 
 router.get("/:pid", async (req, res, next) => {
   try {
-    const pid = parseInt(req.params.pid);
+    const pid = req.params.pid;
     const product = await productService.getProduct(pid);
     res.json(product);
   } catch(error) {
@@ -69,7 +72,7 @@ router.get("/:pid", async (req, res, next) => {
 
 router.post("", async (req, res, next) => {
   try {
-
+   
   } catch (error) {
     next(error);
   }
