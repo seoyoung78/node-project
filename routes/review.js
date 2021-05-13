@@ -59,7 +59,6 @@ router.put("", async (req, res, next) => {
 router.delete("/:review_no", async (req, res, next) => {
   try {
     const rno = req.params.review_no;
-    console.log(req.params);
     const row = await reviewService.delete(rno);
     res.json(row);
   } catch(error) {

@@ -54,4 +54,14 @@ router.put("", async (req, res, next) => {
   }
 });
 
+router.delete("/:qnaNo", async (req, res, next) => {
+  try {
+    const qno = req.params.qnaNo;
+    const row = await qnaService.delete(qno);
+    res.json(row);
+  } catch(error) {
+    next(error);
+  };
+})
+
 module.exports = router;

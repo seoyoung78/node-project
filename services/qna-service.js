@@ -80,6 +80,16 @@ module.exports = {
     } catch(error) {
       throw error;
     }
-  }
+  },
 
+  delete: async function(qno) {
+    try {
+      const row = await db.Qna.destroy({
+        where: {qna_no: qno}
+      });
+      return row;
+    } catch(error) {
+      throw error;
+    }
+  }
 };
