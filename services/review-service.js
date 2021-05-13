@@ -9,12 +9,16 @@ module.exports = {
         where = {
           [Op.or]: [
             {"review_content": {[Op.like]: "%" + keyword + "%"}},
-            //{"product_name": {[Op.like]: "%" + keyword + "%"}}
+            //{"Product.product_name": {[Op.like]: "%" + keyword + "%"}}
         ]}
       } 
 
       const result = await db.Review.count({
-        where
+        where,
+        include: [{
+          model: db.Product,
+          attributes: ["product_name"]
+        }]
       })
       return result;
     } catch(error) {
@@ -29,7 +33,7 @@ module.exports = {
         where = {
           [Op.or]: [
             {"review_content": {[Op.like]: "%" + keyword + "%"}},
-            //{"product_name": {[Op.like]: "%" + keyword + "%"}}
+            //{"Product.product_name": {[Op.like]: "%" + keyword + "%"}}
         ]}
       } 
 

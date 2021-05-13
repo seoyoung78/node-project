@@ -3,53 +3,53 @@
         <div class="form-group d-inline-flex" style="border-bottom: 1px solid lightgray; width: 100%;  padding-left: 50px;">
             <label style="font-weight: bold;">상품 번호 :</label>
             <div class="ml-4">
-                <div ng-bind="product.productNo"></div>
+                <div ng-bind="product.product_no"></div>
             </div>
         </div>
          <div class="form-group d-inline-flex" style="border-bottom: 1px solid lightgray; width: 100%; padding-left: 50px;">
             <label style="font-weight: bold;">카테고리 :</label>
             <div class="ml-4">
-                <div ng-show="product.productCategoryNo === 1">캔들</div>
-                <div ng-show="product.productCategoryNo === 2">조명</div>
-                <div ng-show="product.productCategoryNo === 3">트리</div>
-                <div ng-show="product.productCategoryNo === 4">기타</div>
+                <div ng-show="product.product_category_no === 1">캔들</div>
+                <div ng-show="product.product_category_no === 2">조명</div>
+                <div ng-show="product.product_category_no === 3">트리</div>
+                <div ng-show="product.product_category_no === 4">기타</div>
             </div>
         </div>
         <div class="form-group d-inline-flex" style="border-bottom: 1px solid lightgray; width: 100%; padding-left: 50px;">
             <label style="font-weight: bold;">상품 이름 :</label>
             <div class="ml-4">
-                <input class="form-control mb-4" ng-value="product.productName" ng-model="product.productName" />
+                <input class="form-control mb-4" ng-value="product.product_name" ng-model="product.product_name" />
             </div>
         </div>
         <div class="form-group d-inline-flex" style="border-bottom: 1px solid lightgray; width: 100%; padding-left: 50px;">
             <label style="font-weight: bold;">상품 가격 :</label>
             <div class="ml-4">
-                <input class="form-control mb-4" ng-value="product.productPrice"  ng-model="product.productPrice"/>
+                <input class="form-control mb-4" ng-value="product.product_price"  ng-model="product.product_price"/>
             </div>
         </div>
         <div class="form-group d-inline-flex" style="border-bottom: 1px solid lightgray; width: 100%; padding-left: 50px;">
             <label style="font-weight: bold;">품절 상태 :</label>
             <div class="ml-4">
-                <input name="productState" type="radio" ng-model="product.productState" value="0">판매중
-                <input name="productState" type="radio" ng-model="product.productState" value="1" style="margin-left:10px;"/>품절
+                <input name="product_state" type="radio" ng-model="product.product_state" value="0">판매중
+                <input name="product_state" type="radio" ng-model="product.product_state" value="1" style="margin-left:10px;"/>품절
             </div>
         </div>
         <div class="form-group d-inline-flex" style="border-bottom: 1px solid lightgray; width: 100%; padding-left: 50px;">
             <label style="font-weight: bold;">등록일 :</label>
             <div class="ml-4">
-                <div ng-bind="product.productRegdate | date:'yyyy.MM.dd'"></div>
+                <div ng-bind="product.product_regdate | date:'yyyy.MM.dd'"></div>
             </div>
         </div>
         <div class="form-group d-inline-flex" style="border-bottom: 1px solid lightgray; width: 100%; padding-left: 50px;">
             <label style="font-weight: bold;">조회수 :</label>
             <div class="ml-4">
-                <div ng-bind="product.productHitcount"></div>
+                <div ng-bind="product.product_hitcount"></div>
             </div>
         </div>
         <div class="form-group d-inline-flex" style="border-bottom: 1px solid lightgray; width: 100%; padding-left: 50px;">
             <label style="font-weight: bold;">판매수 :</label>
             <div class="ml-4">
-                <div ng-bind="product.productSellcount"></div>
+                <div ng-bind="product.product_sellcount"></div>
             </div>  
         </div>
         
@@ -59,32 +59,32 @@
         <div class="form-group">
 
             <label class="ml-5" style="font-weight: bold;">대표 이미지:
-            <a class="ml-3" href="{{battachUrl(product.productNo, 0)}}">
-                <img src="{{battachUrl(product.productNo, 0)}}" style="width:150px; height:100px"/>
+            <a class="ml-3" href="{{battachUrl(product.product_no, 0)}}">
+                <img src="{{battachUrl(product.product_no, 0)}}" style="width:150px; height:100px"/>
             </a>
-                <input id="battach1" ng-value="{{battachUrl(product.productNo, 0)}}" type="file" class="form-control-file"/>
+                <input id="battach1" ng-value="{{battachUrl(product.product_no, 0)}}" type="file" class="form-control-file"/>
             </label><br />
             <label class="ml-5" style="font-weight: bold;">이미지:
-                <a class="ml-5" href="{{battachUrl(product.productNo, 1)}}">
-                    <img src="{{battachUrl(product.productNo, 1)}}" style="width:150px; height:100px"/>
+                <a class="ml-5" href="{{battachUrl(product.product_no, 1)}}">
+                    <img src="{{battachUrl(product.product_no, 1)}}" style="width:150px; height:100px"/>
                 </a>
                     <input id="battach2" type="file" class="form-control-file"/>
                 </label><br />
                 <label class="ml-5" style="font-weight: bold;">이미지:
-                <a class="ml-5" href="{{battachUrl(product.productNo, 2)}}">
-                    <img src="{{battachUrl(product.productNo, 2)}}" style="width:150px; height:100px"/>
+                <a class="ml-5" href="{{battachUrl(product.product_no, 2)}}">
+                    <img src="{{battachUrl(product.product_no, 2)}}" style="width:150px; height:100px"/>
                 </a>
                     <input id="battach3" type="file" class="form-control-file"/>
             </label><br />
             <label class="ml-5" style="font-weight: bold;">이미지:
-                <a class="ml-5" href="{{battachUrl(product.productNo, 3)}}">
-                    <img src="{{battachUrl(product.productNo, 3)}}" style="width:150px; height:100px"/>
+                <a class="ml-5" href="{{battachUrl(product.product_no, 3)}}">
+                    <img src="{{battachUrl(product.product_no, 3)}}" style="width:150px; height:100px"/>
                 </a>
                     <input id="battach4" type="file" class="form-control-file"/>
             </label><br />
             <label class="ml-5" style="font-weight: bold;">상세 이미지:
-                <a class="ml-3" href="{{battachUrl(product.productNo, 4)}}">
-                    <img src="{{battachUrl(product.productNo, 4)}}" style="width:150px; height:100px"/>
+                <a class="ml-3" href="{{battachUrl(product.product_no, 4)}}">
+                    <img src="{{battachUrl(product.product_no, 4)}}" style="width:150px; height:100px"/>
                 </a>
                     <input id="battach5" type="file" class="form-control-file"/>
             </label><br />

@@ -83,11 +83,11 @@ angular.module("app")
     };
 
     $scope.createProduct = (product) => {
-      if(product && product.productCategoryNo && product.productName && product.productPrice) {
+      if(product && product.product_category_no && product.product_name && product.product_price) {
         var formData = new FormData();  //multipart 데이터 객체
-        formData.append("productCategoryNo", product.productCategoryNo);
-        formData.append("productName", product.productName);
-        formData.append("productPrice", product.productPrice);
+        formData.append("product_category_no", product.product_category_no);
+        formData.append("product_name", product.product_name);
+        formData.append("product_price", product.product_price);
         
         var imgFlag1 = false;
         var imgFlag2 = false;
@@ -149,12 +149,12 @@ angular.module("app")
     };
 
     $scope.updateProduct = (product) => {
-      if(product.productNo && product.productName && product.productPrice) {
+      if(product.product_no && product.product_name && product.product_price) {
         var formData = new FormData();  //multipart 데이터 객체
-        formData.append("productNo", product.productNo);
-        formData.append("productName", product.productName);
-        formData.append("productPrice", product.productPrice);
-        formData.append("productCategoryNo", product.productCategoryNo);
+        formData.append("product_no", product.product_no);
+        formData.append("product_name", product.product_name);
+        formData.append("product_price", product.product_price);
+        formData.append("product_category_no", product.product_category_no);
     
 
         var battach1 = $("#battach1")[0].files[0];
@@ -184,14 +184,14 @@ angular.module("app")
         }
         
         var stateCk = false;
-        if(product.productState === "0" || product.productState === "1"){
-          formData.append("productState", product.productState);
+        if(product.product_state === "0" || product.product_state === "1"){
+          formData.append("product_state", product.product_state);
           stateCk = true;
         }
         if(stateCk){
         productService.update(formData)
           .then((response) => {
-              $scope.read(product.productNo);
+              $scope.read(product.product_no);
           });
         }else{
           window.alert("정확한 값을 입력하세요.");

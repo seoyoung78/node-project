@@ -27,7 +27,6 @@ angular.module("app")
         },
 
         create: function(formData){
-            console.log("creat 실행");
             const promise = $http.post(BASE_URL, formData, {headers:{"Content-Type":undefined}});
             return promise;
         },

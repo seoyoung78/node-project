@@ -1,6 +1,9 @@
 const express = require("express");
 const productService = require("../services/product-service");
+const imgService = require("../services/productsimg-service");
 const paging = require("../utils/paging");
+const multipartFormData = require("../utils/multipart-form-data");
+const db = require("../sequelize/models");
 
 const router = express.Router();
 
@@ -52,9 +55,14 @@ router.get("/pcount", async (req, res, next) => {
 router.get("/battach/:pid/:i", async (req, res, next) => {
   try {
     const pid = req.params.pid;
-    const i = req.params.i;
-    const img = await productService.getImgList(pid);
+    const i = parseInt(req.params.i) + 1;
+    console.log("i: ", i);
+    const img = await imgService.getImgList(pid, i);
     console.log(img);
+    const fileSavePath = process.env.UPLOAD_PATH + img.img_sname;
+    const fileOriginalName = img.img_oname;
+
+    res.download(fileSavePath, fileOriginalName);
   } catch (error) {
     next(error);
   }
@@ -70,17 +78,29 @@ router.get("/:pid", async (req, res, next) => {
   }
 });
 
-router.post("", async (req, res, next) => {
+router.post("", multipartFormData.array("battach"), async (req, res, next) => {
   try {
-   
+    const product = {...req.body, product_category_no: parseInt(req.body.product_category_no), product_price: parseInt(req.body.product_price)};
+    const dbProdcut = await productService.create(product);
+
+    let img;
+    for(i = 0; i < 5; i ++) {
+      img = {product_no:dbProdcut.product_no, img_state:(i+1), img_oname:req.files[i].originalname, img_sname:req.files[i].filename, img_type:req.files[i].mimetype};
+      const dbImg = await imgService.create(img);
+    }
+
+    res.json(product);
   } catch (error) {
     next(error);
   }
 });
 
-router.put("", async (req, res, next) => {
+router.put("", multipartFormData.array("battach"), async (req, res, next) => {
   try {
-
+    const product = {...req.body, product_category_no: parseInt(req.body.product_category_no), product_price: parseInt(req.body.product_price), product_state: parseInt(req.body.product_state)};
+    const row = await productService.update(product);
+    console.log(req.files);
+    res.json(row);
   } catch (error) {
     next(error);
   }

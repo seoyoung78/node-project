@@ -156,17 +156,25 @@ module.exports = {
     }
   },
 
-  getImgList: async function(pid) {
+  create: async function(product) {
     try {
-      const img = await db.Product.findOne({
-        where: {product_no: pid},
-        include: [{
-          model: db.ProductsImg,
-          attributes: ["img_state", "img_oname", "img_sname", "img_type"]
-        }]
+      const dbProduct = await db.Product.create(product);
+      return dbProduct;
+    } catch(error) {
+      throw error;
+    }
+  },
+
+  update: async function(product) {
+    try {
+      const row = await db.Product.update({
+        product_name: product.product_name,
+        product_price: product.product_price,
+        product_category_no: product.product_category_no
+      }, {
+        where: {product_no: product.product_no}
       });
-      console.log(img)
-      return img;
+      return row;
     } catch(error) {
       throw error;
     }
