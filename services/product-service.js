@@ -170,7 +170,8 @@ module.exports = {
       const row = await db.Product.update({
         product_name: product.product_name,
         product_price: product.product_price,
-        product_category_no: product.product_category_no
+        product_category_no: product.product_category_no,
+        product_state: product.product_state
       }, {
         where: {product_no: product.product_no}
       });

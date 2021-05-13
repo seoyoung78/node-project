@@ -24,5 +24,20 @@ module.exports = {
     } catch(error) {
       throw error;
     }
+  },
+
+  update: async function(img) {
+    try {
+      const row = await db.ProductsImg.update({
+        img_sname: img.img_sname,
+        img_oname: img.img_oname,
+        img_type: img.img_type
+      }, {
+        where: {product_no: img.product_no, img_state: img.img_state}
+      });
+      return row;
+    } catch (error) {
+      throw error;
+    }
   }
 };

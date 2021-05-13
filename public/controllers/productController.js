@@ -163,24 +163,24 @@ angular.module("app")
         var battach4 = $("#battach4")[0].files[0];
         var battach5 = $("#battach5")[0].files[0];
         if(battach1){
-          formData.append("battach", battach1);
-          formData.append("state", 1);
+          formData.append("battach1", battach1);
+          formData.append("state1", 1);
         }
         if(battach2){
-          formData.append("battach", battach2);
-          formData.append("state", 2);
+          formData.append("battach2", battach2);
+          formData.append("state2", 2);
         }
         if(battach3){
-          formData.append("battach", battach3);
-          formData.append("state", 3);
+          formData.append("battach3", battach3);
+          formData.append("state3", 3);
         }
         if(battach4){
-          formData.append("battach", battach4);
-          formData.append("state", 4);
+          formData.append("battach4", battach4);
+          formData.append("state4", 4);
         }
         if(battach5){
-          formData.append("battach", battach5);
-          formData.append("state", 5);
+          formData.append("battach5", battach5);
+          formData.append("state5", 5);
         }
         
         var stateCk = false;
