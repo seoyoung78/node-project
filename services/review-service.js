@@ -9,7 +9,7 @@ module.exports = {
         where = {
           [Op.or]: [
             {"review_content": {[Op.like]: "%" + keyword + "%"}},
-            //{"Product.product_name": {[Op.like]: "%" + keyword + "%"}}
+            //{"[0].Product.product_name": {[Op.like]: "%" + keyword + "%"}}
         ]}
       } 
 
@@ -47,7 +47,9 @@ module.exports = {
         limit: pager.rowsPerPage,
         offset: pager.startRowIndex
       });
-      
+      console.log(review);
+      // console.log(review[0].Product.product_name);
+      // console.log(review[1].Product.product_name);
       return review;
     } catch(error) {
       throw error;

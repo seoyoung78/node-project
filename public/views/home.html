@@ -187,7 +187,7 @@
                         <tr ng-repeat="blist in blist">
                           <td>{{blist.product_no}}</td>
                           <td>{{blist.product_name}}</td>
-                          <td>{{blist.product_price }}원</td>
+                          <td>{{blist.product_price | number:0}}원</td>
                           <td class="text-danger">{{blist.product_sellcount}}</td>
                       </tr>
     
@@ -212,7 +212,7 @@
                             <tr ng-repeat="nlist in nlist">
                               <td>{{nlist.product_no}}</td>
                               <td>{{nlist.product_name}}</td>
-                              <td>{{nlist.product_price }}원</td>
+                              <td>{{nlist.product_price | number:0}}원</td>
                               <td class="text-danger">{{nlist.product_regdate | date:"yyyy.MM.dd"}}</td>
                           </tr>
         

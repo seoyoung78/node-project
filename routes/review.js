@@ -10,9 +10,8 @@ router.get("", async (req, res, next) => {
     const pageNo = req.query.pageNo? parseInt(req.query.pageNo) : 1;
     const keyword = req.query.keyword || "";
     const totalRows = await reviewService.totalRows(keyword);
-    const pager = paging.init(10, 5, pageNo, totalRows);
+    const pager = paging.init(5, 5, pageNo, totalRows);
     const reviews = await reviewService.list(pager, keyword);
-
     res.json({pager, reviews});
   } catch(error) {
     next(error);

@@ -3,7 +3,6 @@ const productService = require("../services/product-service");
 const imgService = require("../services/productsimg-service");
 const paging = require("../utils/paging");
 const multipartFormData = require("../utils/multipart-form-data");
-const db = require("../sequelize/models");
 
 const router = express.Router();
 

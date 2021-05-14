@@ -1,7 +1,7 @@
 <div class="card-body">
       <div>
 
-        <table class="table mt-3">
+        <table class="table mt-3" style="text-align: center;">
             <tr style="background-color: #f8f9fa;">
                 <th>번호</th>
                 <th>상품이름</th>
@@ -21,7 +21,7 @@
                       </div> 
                 </td>
                 <td>{{orderProduct.amount}}</td>
-                <td>{{orderProduct.price}}</td>
+                <td>{{orderProduct.price | number:0}}원</td>
             </tr>
         </table>
         <div class="d-flex justify-content-center">  

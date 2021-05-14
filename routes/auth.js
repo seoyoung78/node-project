@@ -9,7 +9,6 @@ router.get("", (req, res) => {});
 router.post("/auth/login", async (req, res, next) => {
   try {
     const user = req.body;
-    console.log(user);
     const result = await userService.login(user);
     if (result.id !== "success") {
       req.session.loginError = result;
