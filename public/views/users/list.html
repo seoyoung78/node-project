@@ -5,14 +5,10 @@
         <select ng-model="userStateVal"  style="height: 2em; width: 5em;">
           <option ng-repeat="user_state in userStateList">{{user_state}}</option>
         </select>
-        <input type="text" style="margin-top: 1em; width: 13em;"ng-model="idKeywordVal" placeholder="회원 아이디를 입력하세요."/>
+        <input type="text" style="width: 13em;"ng-model="idKeywordVal" placeholder="회원 아이디를 입력하세요."/>
         <button class="btn btn-sm btn-secondary" ng-click="idKeywordButton(userStateVal, idKeywordVal)" style="margin-bottom: 5px;">검색</button>
       </div>
 
-      
-
-       
-      
         <table class="table mt-3">
             <tr style="text-align: center; background-color: #f8f9fa;">
                 <th>아이디</th>
